@@ -1,0 +1,293 @@
+@import 'vars'
+
+//——————————————————————————————————————————————————
+// Global Styles
+//——————————————————————————————————————————————————
+
+// Basic settings:
+body
+	min-width: 320px
+
+	font: 400 16px / 1.5 $default-font
+	color: $main-color
+
+	background-color: $bg-color
+
+h1,
+h2,
+h3
+	font-family: $title-font
+	font-weight: 400
+
+h2
+	max-width: 750px
+	margin: 0 auto 110px
+
+	font-size: 40px
+	text-align: center
+
+ul
+	margin: 0
+	padding-left: 0
+
+	li
+		list-style: none
+
+input,
+textarea,
+select
+	-webkit-appearance: none
+	border-radius: 0
+
+input,
+textarea,
+button
+	&:focus
+		outline: none
+
+textarea
+	resize: none
+
+button
+	border: none
+
+a:hover
+	text-decoration: none
+
+::placeholder
+	color: #777
+	opacity: 1
+
+:focus::placeholder
+	color: transparent
+
+::selection
+	color: $main-color
+	background-color: $accent-color
+
+// Owl-carousel img restyle
+.owl-carousel
+	.owl-item
+		img
+			display: inline
+			width: auto
+
+// Mixins:
+=transition($property)
+	transition: $property .15s linear
+
+=transition-slower($property)
+	transition: $property .25s linear
+
+// Extentions:
+%main-bg
+	position: relative
+	z-index: 10
+
+	background: url(../images/main-bg.jpg) center / cover no-repeat
+
+	&::before
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		z-index: -10
+
+		width: 100%
+		height: 100%
+
+		background-color: rgba(#232323, .9)
+
+%padd
+	padding:
+		top: 145px
+		bottom: 145px
+
+%pseudo-line
+	&::before
+		content: ''
+		position: absolute
+		top: -145px
+		left: calc(50% - .5px)
+
+		width: 1px
+		height: 125px
+
+		background-color: $accent-color
+
+%paragraph
+	margin-bottom: 20px
+
+	font-size: 14px
+	line-height: 1.95
+	color: $text-color
+
+// Extra classes:
+.container
+	position: relative
+	width: 100%
+	max-width: 1170px
+	margin:
+		right: auto
+		left: auto
+	padding:
+		right: $gutter / 2
+		left: $gutter / 2
+
+.of-hidden
+	overflow: hidden
+
+.img-fluid
+	display: block
+
+	max-width: 100%
+	height: auto
+
+.suptitle
+	position: relative
+	margin-bottom: 25px
+
+	font:
+		size: 14px
+		weight: 600
+	text-transform: uppercase
+	text-align: center
+	color: $accent-color
+
+	@extend %pseudo-line
+
+.details-link
+	font-size: 14px
+	font-weight: 600
+	text-transform: uppercase
+	color: $main-color !important
+	+transition(color)
+
+	svg
+		width: 18px
+		height: 13px
+		margin-top: -3px
+		padding-left: 5px
+
+		fill: $accent-color
+		+transition(fill)
+
+	&-rotate
+		svg
+			transform: rotate(180deg)
+
+.contact-btn
+	display: inline-block
+	padding: 18px 32px
+
+	font-size: 17px
+	font-weight: 600
+	text-transform: uppercase
+	color: #232323 !important
+
+	background-color: $accent-color
+	+transition-slower(background-color)
+
+	svg
+		width: 25px
+		height: 19px
+		margin-top: -4px
+		margin-left: 2px
+
+		fill: #232323
+
+// hover effects for NON TOUCH devices:
+.no-touch
+	.header
+		&-services
+			a:hover
+				color: $hover-color
+
+		&-scroll:hover
+			svg
+				fill: $hover-color
+
+	.site-logo:hover
+		color: $hover-color !important
+		border-color: $hover-color
+
+	.services-hidden-btn:hover
+		svg
+			fill: $hover-color
+
+	.footer-contacts
+		address
+			>a:hover
+				color: $hover-color
+
+		.social-links
+			a:hover
+				svg
+					fill: $hover-color
+
+	.details-link:hover
+		color: $hover-color !important
+
+		svg
+			fill: $hover-color
+
+	.contact-btn
+		&:hover
+			background-color: $hover-color
+
+		&:active
+			background-color: darken($accent-color, 25)
+
+// active effects for TOUCH devices:
+.touch
+	.header
+		&-services
+			a:active
+				color: $hover-color
+
+		&-scroll:active
+			svg
+				fill: $hover-color
+
+	.site-logo:active
+		color: $hover-color !important
+		border-color: $hover-color
+
+	.services-hidden-btn:active
+		svg
+			fill: $hover-color
+
+	.footer-contacts
+		address
+			>a:active
+				color: $hover-color
+
+		.social-links
+			a:active
+				svg
+					fill: $hover-color
+
+	.details-link:active
+		color: $hover-color !important
+
+		svg
+			fill: $hover-color
+
+	.contact-btn
+		&:active
+			background-color: $hover-color
+
+// Scrollbar customization for WebKit browsers:
+::-webkit-scrollbar
+	width: 15px
+
+::-webkit-scrollbar-track
+	background-color: $border-color
+
+::-webkit-scrollbar-thumb
+	background-color: $accent-color
+	border-radius: 8px
+	border: 3px solid $border-color
+
+	&:hover
+		background-color: $hover-color

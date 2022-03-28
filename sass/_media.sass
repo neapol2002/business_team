@@ -1,0 +1,395 @@
+//——————————————————————————————————————————————————
+// Responsive Media Queries
+//——————————————————————————————————————————————————
+
+@media (max-width: 1440px)
+
+	// Section: Header
+	.header
+		min-height: 750px
+		max-height: 1080px
+
+@media (max-width: 1199px)
+
+	// Section: Our Team
+	.our-team
+		&-profiles
+			width: 100%
+			max-width: 570px
+			margin:
+				right: auto
+				left: auto
+
+			.profile-wrapper
+				flex: 0 0 50%
+				max-width: 50%
+
+				&:nth-child(even)
+					border-right-color: transparent
+
+				&:nth-child(n + 5):nth-child(-n + 6)
+					border-bottom-color: $bg-color
+
+@media (max-width: 1024px)
+
+	// Section: Header
+	.header
+		height: initial
+		min-height: initial
+		max-height: initial
+		padding:
+			top: 18%
+			bottom: 30px
+
+		&-services
+			margin-bottom: 120px
+
+		&-scroll
+			margin-bottom: 70px
+
+		.bottom-line
+			position: initial
+
+	// Section: Footer
+	.footer
+		&-form
+			input
+				font-size: 16px
+
+@media (max-width: 991px)
+
+	// Section: Services
+	%padd
+		padding:
+			top: 105px
+			bottom: 105px
+
+	%pseudo-line
+		&::before
+			top: -105px
+			height: 85px
+
+	.services-hidden
+		&-bg
+			display: none
+
+		&-content
+			width: 100%
+			max-width: 550px
+			margin:
+				right: auto
+				left: auto
+
+			ul
+				margin-bottom: 44px
+
+		&-btn
+			left: calc(50% - 20px)
+
+	// Section: Portfolio
+	.portfolio
+		&-active-carousel
+			.slide
+				max-width: 800px
+				padding:
+					right: 15px
+					left: 15px
+
+			.slide-titles
+				position: static
+				opacity: 1
+
+			.suptitle
+				margin-bottom: 5px
+
+				&::before
+					display: none
+
+			.slide-links
+				top: 34px
+				opacity: 1
+
+				a
+					&:last-child
+						&::after
+							display: none
+
+		&-project-details
+			.wrapper
+				&::after
+					display: none
+
+			.content
+				width: 100%
+				max-width: 570px
+				margin:
+					right: auto
+					left: auto
+
+				&::before
+					width: 85px
+
+				&::after
+					height: 85px
+
+	.hidden-carousel-wrapper
+		max-width: 800px
+
+@media (max-width: 767px)
+
+	h2
+		margin-bottom: 70px
+		font-size: 36px
+
+	// Section: Header
+	.header
+		h1
+			font-size: 50px
+
+	// Section: Services
+	.services
+		&-main
+			.flex-wrapper
+				flex-direction: column
+				align-items: center
+
+		&-item
+			&:not(:last-child)
+				margin-bottom: 40px
+
+	// Section: Portfolio
+	.portfolio
+		&-active-carousel
+			h2
+				font-size: 46px
+
+			.slide-links
+				top: 25px
+
+	// Section: Testimonials
+	.testimonials
+		.company-logos
+			justify-content: space-around
+			max-width: 285px
+			margin:
+				right: auto
+				left: auto
+
+			img
+				&:not(:last-child)
+					margin: 0 15px 30px
+
+		&-carousel
+			.slide
+				margin: 75px 15px 25px
+				padding:
+					right: 40px
+					left: 40px
+
+			.client-name
+				&::before,
+				&::after
+					width: 120px
+
+				&::before
+					margin-right: 30px
+
+				&::after
+					margin-left: 30px
+
+	// Section: Footer
+	.footer
+		h2
+			margin-bottom: 70px
+
+		&-form
+			margin-bottom: 70px
+			padding:
+				right: 20px
+				left: 20px
+
+			.input-wrapper
+				flex: 0 0 45%
+				width: 45%
+
+		&-contacts
+			flex-direction: column
+			align-items: center
+			text-align: center
+
+			&-item
+				flex: 0 0 70%
+				width: 70%
+
+				&:first-child
+					flex: 0 0 20%
+					width: 20%
+
+				&:not(:last-child)
+					margin-bottom: 25px
+
+				.site-logo
+					margin-top: 0
+
+@media (max-width: 575px)
+
+	h2
+		font-size: 30px
+
+	// Section: Header
+	.header
+		padding-top: 30%
+
+		h1
+			padding: 40px 10px
+			font-size: 42px
+
+	// Section: Services
+	.services-hidden
+		&-content
+			h4
+				line-height: 1.5
+
+			p
+				line-height: 1.8
+
+			li
+				width: 100%
+
+				&:not(:last-child)
+					margin-bottom: 17px
+
+	// Section: Portfolio
+	.portfolio
+		&-active-carousel
+			.owl-nav.disabled + .owl-dots
+				margin-top: 30px
+
+			.slide-titles
+				margin-bottom: 5px
+
+			.suptitle
+				margin-bottom: 0
+
+			h2
+				font-size: 42px
+
+			.slide-links
+				position: static
+				margin-bottom: 15px
+
+				a
+					display: inline-block
+
+					&:first-child
+						margin:
+							right: 15px
+							bottom: 0
+
+			.owl-dots
+				.owl-dot
+					span
+						margin:
+							right: 14px
+							left: 14px
+
+		&-hidden-carousel
+			.owl-nav.disabled + .owl-dots
+				margin-top: 30px
+
+			.owl-dots
+				position: static
+
+				.owl-dot
+					span
+						width: 30px
+						margin:
+							right: 14px
+							left: 14px
+
+					&:last-child span
+						margin-right: 14px
+
+		&-project-details
+			.content
+				padding: 25px 11px
+				margin-bottom: 30px
+
+			p
+				line-height: 1.8
+
+	.hidden-carousel-wrapper
+		text-align: center
+
+		.details-link
+			margin-top: 23px
+
+	// Section: Testimonials
+	.testimonials
+		&-carousel
+			.owl-dots
+				.owl-dot
+					span
+						margin:
+							right: 14px
+							left: 14px
+
+			.slide
+				margin-bottom: 20px
+				padding:
+					right: 20px
+					left: 20px
+
+			p
+				font-size: 16px
+
+			.client-name
+				&::before,
+				&::after
+					width: 45px
+
+				&::before
+					margin-right: 10px
+
+				&::after
+					margin-left: 10px
+
+	// Section: Our Team
+	.our-team
+		&-profiles
+			max-width: 285px
+
+			.profile-wrapper
+				flex: 0 0 100%
+				max-width: 100%
+
+				&:nth-child(odd)
+					border-right-color: transparent
+
+				&:nth-child(n + 7)
+					border-bottom-color: $bg-color
+
+	// Section: Footer
+	.footer
+		&-form
+			&-inner
+				margin-bottom: 0
+
+			.input-wrapper
+				flex: 0 0 100%
+				width: 100%
+
+@media (max-width: 320px)
+
+	// Section: Header
+	.header
+		h1
+			padding:
+				top: 20px
+				bottom: 20px
+
+	// Section: Portfolio
+	.portfolio
+		&-active-carousel
+			h2
+				font-size: 39px

@@ -1,0 +1,726 @@
+@import 'vars'
+@import 'fonts'
+@import 'libs'
+@import 'base'
+
+//——————————————————————————————————————————————————
+// Section: Header
+//——————————————————————————————————————————————————
+
+.header
+	@extend %main-bg
+
+	height: 100vh
+	min-height: 850px
+	max-height: 1200px
+	padding-top: 14%
+
+	text-align: center
+
+	h1
+		position: relative
+		z-index: 5
+
+		max-width: 750px
+		margin: 0 auto
+		padding: 50px 0
+
+		font-size: 55px
+		line-height: 1.6
+
+		border: 1px solid $border-color
+
+		span
+			color: $accent-color
+
+	&-services
+		position: relative
+		z-index: 10
+
+		margin-top: 25px
+
+		a
+			font-size: 13px
+			text-transform: uppercase
+			color: $main-color
+			+transition(color)
+
+		span
+			position: relative
+			top: -1px
+			margin:
+				right: 10px
+				left: 10px
+
+			color: $accent-color
+			cursor: default
+
+	&-scroll
+		display: inline-block
+		margin-bottom: 4%
+
+		svg
+			display: block
+			width: 20px
+			height: 20px
+
+			fill: $accent-color
+			+transition(fill)
+
+	.bottom-line
+		position: absolute
+		bottom: 30px
+		left: 0
+		width: 100%
+
+		&-inner
+			display: flex
+			justify-content: space-between
+			align-items: center
+
+.site-logo
+	display: inline-block
+
+	width: 45px
+	height: 45px
+
+	font-size: 25px
+	text-align: center
+	text-transform: uppercase
+	line-height: 42px
+	color: $accent-color !important
+
+	border-radius: 50%
+	border: 2px solid $accent-color
+	+transition(all)
+
+//——————————————————————————————————————————————————
+// Section: Services
+//——————————————————————————————————————————————————
+
+.services
+	background-color: $bg-color
+
+	&-main
+		@extend %padd
+
+		.flex-wrapper
+			display: flex
+			justify-content: space-around
+
+	&-item
+		max-width: 230px
+
+		>svg
+			width: 21px
+			height: 21px
+			margin-bottom: 25px
+
+			fill: $accent-color
+
+		h3
+			font-size: 30px
+
+	p
+		@extend %paragraph
+
+	&-hidden
+		display: none
+
+		.flex-wrapper
+			display: flex
+			justify-content: space-between
+			position: relative
+
+		&-bg,
+		&-content
+			width: 48%
+
+		&-bg
+			padding-top: 145px
+			text-align: right
+
+			background: url(../images/services-bg.jpg) right center / cover no-repeat
+
+			h3
+				display: inline-block
+				margin-bottom: 0
+				padding: 15px 36px
+
+				font-size: 30px
+				color: #232323
+
+				background-color: #fff
+
+		&-content
+			@extend %padd
+
+			h4
+				position: relative
+				margin-bottom: 30px
+
+				font-size: 17px
+				font-weight: 600
+				text-transform: uppercase
+				line-height: .7
+
+				@extend %pseudo-line
+
+				&::before
+					left: 2px
+					width: 2px
+
+			p
+				margin-bottom: 30px
+
+			ul
+				margin:
+					top: 40px
+					bottom: 64px
+
+			li
+				display: inline-block
+				width: calc(50% - 4px)
+
+				font-size: 15px
+				font-weight: 600
+
+				svg
+					width: 16px
+					height: 16px
+					margin:
+						top: -2px
+						right: 8px
+
+					fill: $accent-color
+
+				&:not(:last-child)
+					margin-bottom: 27px
+
+		&-btn
+			position: absolute
+			bottom: 25px
+			left: 40px
+
+			padding: 0
+			background: none
+
+			svg
+				width: 40px
+				height: 40px
+
+				fill: $accent-color
+				+transition(fill)
+
+//——————————————————————————————————————————————————
+// Section: Portfolio
+//——————————————————————————————————————————————————
+
+.portfolio
+	background-color: darken($bg-color, 3)
+
+	.owl-carousel.owl-hidden
+		opacity: 1
+
+	.owl-carousel
+		.owl-item
+			img
+				opacity: .7
+
+	// portfolio-active-carousel
+	&-active-carousel
+		@extend %padd
+
+		.owl-nav.disabled + .owl-dots
+			margin-top: 35px
+
+		.owl-dots
+			.owl-dot
+				span
+					+transition(background)
+
+		.owl-item.active
+			.slide-titles
+				top: 145px
+				opacity: 1
+
+			.slide-links
+				bottom: 145px
+				opacity: 1
+
+		.slide
+			@extend .container
+
+			padding:
+				right: 185px
+				left: 185px
+
+		.slide-titles,
+		.slide-links
+			position: absolute
+			z-index: 5
+
+			opacity: 0
+			transition: all .7s linear
+
+		.slide-titles
+			top: -145px
+			left: 15px
+
+		.suptitle
+			margin-bottom: 15px
+			text-align: left
+
+			&::before
+				left: 1px
+				width: 2px
+
+		h2
+			margin: 0
+
+			font-size: 55px
+			text-align: left
+
+		.slide-links
+			right: 15px
+			bottom: -145px
+
+			a
+				display: block
+
+				&:first-child
+					margin-bottom: 12px
+
+				&:last-child
+					position: relative
+
+					&::after
+						content: ''
+						position: absolute
+						bottom: -145px
+						left: 1px
+
+						width: 2px
+						height: 125px
+
+						background-color: $accent-color
+
+// portfolio-hidden-carousel
+.hidden-carousel-wrapper,
+.portfolio-project-details
+	display: none
+
+.hidden-carousel-wrapper
+	@extend %padd
+
+	max-width: 975px
+
+	.details-link
+		display: inline-block
+		margin-top: 37px
+
+.portfolio-hidden-carousel
+	.owl-nav.disabled + .owl-dots
+		margin-top: 0
+
+	.owl-dots
+		position: absolute
+		right: 0
+		bottom: -61px
+
+		.owl-dot
+			span
+				width: 17px
+				margin:
+					right: 12px
+					left: 12px
+
+			&:last-child span
+				margin-right: 0
+
+// portfolio-project-details
+@for $i from 1 through 5
+	#project_det_#{$i}
+		.wrapper
+			&::after
+				background-image: url(../images/portfolio/active-carousel/project-#{$i}.jpg)
+
+.portfolio-project-details
+	@extend %padd
+
+	text-align: center
+
+	.wrapper
+		position: relative
+
+		&::after
+			content: ''
+			position: absolute
+			top: 0
+			left: 50%
+
+			width: 50%
+			height: 100%
+
+			background:
+				position: center
+				size: cover
+				repeat: no-repeat
+			opacity: .7
+
+	.content
+		position: relative
+
+		width: 50%
+		margin-bottom: 35px
+		padding: 40px
+
+		text-align: left
+
+		background-color: $bg-color
+
+		&::before,
+		&::after
+			content: ''
+			position: absolute
+			top: 0
+			left: 0
+
+			background-color: $accent-color
+
+		&::before
+			width: 125px
+			height: 2px
+
+		&::after
+			width: 2px
+			height: 125px
+
+	h2,
+	.suptitle
+		text-align: left
+
+	h2
+		margin-bottom: 11px
+
+	.suptitle
+		margin-bottom: 30px
+
+		&::before
+			display: none
+
+		span
+			position: relative
+			top: -1px
+			margin:
+				right: 5px
+				left: 5px
+
+			color: $main-color
+
+	p
+		@extend %paragraph
+
+		&:first-of-type
+			margin-bottom: 30px
+
+//——————————————————————————————————————————————————
+// Section: Testimonials
+//——————————————————————————————————————————————————
+
+.testimonials
+	@extend %padd
+
+	background-color: $bg-color
+
+	.company-logos
+		display: flex
+		justify-content: space-between
+		flex-wrap: wrap
+
+	&-carousel
+		.slide
+			max-width: 750px
+			margin: 95px auto 25px
+			padding: 0 60px 35px
+
+			text-align: center
+
+			background-color: darken($bg-color, 3)
+			box-shadow: 3px 5px 15px rgba(#000, .4)
+
+		img
+			height: 75px
+			margin-bottom: 44px
+
+		p
+			margin-bottom: 40px
+
+			font:
+				size: 17px
+				family: $title-font
+			line-height: 2
+			color: $text-color
+
+		.client-name
+			margin-bottom: 7px
+
+			font:
+				size: 14px
+				weight: 600
+			text-transform: uppercase
+			color: $accent-color
+
+			&::before,
+			&::after
+				content: ''
+				display: inline-block
+				vertical-align: 9px
+				width: 170px
+				height: 1px
+
+				background-color: #474747
+
+			&::before
+				margin-right: 40px
+
+			&::after
+				margin-left: 40px
+
+		.client-post
+			font-size: 13px
+
+//——————————————————————————————————————————————————
+// Section: Our Team
+//——————————————————————————————————————————————————
+
+.our-team
+	@extend %padd
+
+	background-color: darken($bg-color, 3)
+
+	&-profiles
+		display: flex
+		flex-wrap: wrap
+
+		.profile-wrapper
+			position: relative
+
+			flex: 0 0 25%
+			max-width: 25%
+			height: 325px
+
+			cursor: pointer
+			border:
+				right: 2px solid $bg-color
+				bottom: 2px solid $bg-color
+
+			&:nth-child(4n + 4)
+				border-right-color: transparent
+
+			&:nth-child(n + 5)
+				border-bottom-color: transparent
+
+		.single-profile,
+		.active-profile
+			position: absolute
+			top: 0
+			left: 0
+
+			width: 100%
+			height: 100%
+
+		.single-profile
+			padding-top: 55px
+			text-align: center
+
+		img
+			max-width: 120px
+			height: auto
+			margin-bottom: 23px
+
+			border-radius: 50%
+
+		.teammate-name
+			margin-bottom: 7px
+
+			font:
+				size: 14px
+				weight: 600
+			text-transform: uppercase
+			color: $accent-color
+
+		.teammate-post
+			font-size: 13px
+
+		.active-profile
+			display: none
+
+			&::before,
+			&::after
+				content: ''
+				position: absolute
+				top: 0
+				left: 0
+
+				background-color: $accent-color
+
+			&::before
+				width: 1px
+				height: 70px
+
+			&::after
+				width: 70px
+				height: 1px
+
+		.teammate-wrapper
+			position: absolute
+			top: 16px
+			left: 12px
+
+			img
+				max-width: 50px
+				margin-bottom: 17px
+
+		.teammate-info
+			margin-left: 48px
+			transform: rotate(90deg)
+			transform-origin: 0 0 0
+
+		p
+			height: 100%
+			margin-bottom: 0
+			padding: 10px 18px 10px 80px
+
+			font-size: 13px
+			line-height: 1.9
+			color: $text-color
+
+			overflow-y: auto
+
+//——————————————————————————————————————————————————
+// Section: Footer
+//——————————————————————————————————————————————————
+
+.footer
+	@extend %padd, %main-bg
+
+	padding-bottom: 115px
+
+	h2
+		margin-bottom: 75px
+
+	&-container
+		@extend .container
+
+		max-width: 780px
+
+	&-form
+		margin-bottom: 120px
+		padding: 55px
+
+		font-size: 14px
+
+		background-color: darken($bg-color, 3)
+		box-shadow: 3px 5px 15px rgba(#000, .4)
+
+		label
+			margin-bottom: 0
+
+			text-transform: uppercase
+			cursor: pointer
+			+transition(all)
+
+		input
+			display: block
+
+			width: 100%
+			margin-bottom: 40px
+			padding:
+				top: 3px
+				bottom: 10px
+
+			color: $main-color
+
+			background: none
+			border: none
+			border-bottom: 1px solid #5c5c5c
+			+transition(border-bottom-color)
+
+			&:focus
+				border-bottom-color: $accent-color
+
+		&-inner
+			display: flex
+			flex-wrap: wrap
+			justify-content: space-between
+
+			margin-bottom: 26px
+
+		.input-wrapper
+			flex: 0 0 43%
+			width: 43%
+
+		.contact-btn
+			display: table
+			margin: 55px auto 0
+			padding:
+				right: 35px
+				left: 35px
+
+	&-contacts
+		display: flex
+		justify-content: space-between
+
+		&-item
+			flex: 0 0 25%
+			width: 25%
+
+			&:first-child
+				flex: 0 0 7%
+				width: 7%
+
+			.site-logo
+				margin-top: 6px
+
+			h4
+				margin-bottom: 16px
+
+				font:
+					size: 14px
+					weight: 600
+				text-transform: uppercase
+
+			address
+				margin-bottom: 0
+
+				font-size: 14px
+				line-height: 2
+				color: $text-color
+
+				>a
+					color: $text-color
+					+transition(color)
+
+			.social-links
+				margin-top: 19px
+
+				a
+					display: inline-block
+
+					&:not(:last-child)
+						margin-right: 8px
+
+				svg
+					width: 24px
+					height: 24px
+
+					fill: $text-color
+					+transition(fill)
+
+.label-active
+	font-size: 12px
+	color: $accent-color
+
+// Always in the end
+@import 'media'
